@@ -41,8 +41,26 @@ message.classList.add("cookie-message");
 message.innerHTML='we use cookie for improved fucntionality .<button class="btn btn--close-cookie">Got it</button>';
 
 const header = document.querySelector(".header");
-header.before(message);
+header.append(message);
 
 // on click delete element
 
 document.querySelector('.btn--close-cookie').addEventListener('click',()=>message.remove());
+
+//styles
+
+message.style.backgroundColor = '#3438d';
+message.style.width='80%';
+
+console.table(window.getComputedStyle(message));
+
+
+//Smooth Scrooling
+
+const btnClick = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+//old method
+btnClick.addEventListener('click',(event) => {
+  const scrolllim = section1.getBoundingClientRect();
+  window.scrollTo(scrolllim.left+window.pageXOffset,scrolllim.top+window.pageYOffset);
+})
