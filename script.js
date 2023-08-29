@@ -42,3 +42,7 @@ message.innerHTML='we use cookie for improved fucntionality .<button class="btn 
 
 const header = document.querySelector(".header");
 header.before(message);
+
+// on click delete element
+
+document.querySelector('.btn--close-cookie').addEventListener('click',()=>message.remove());
