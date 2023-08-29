@@ -33,3 +33,12 @@ document.addEventListener('keydown', function (e) {
 console.log(document.documentElement);
 console.log(document.body);
 console.table(document.head);
+
+// creating new element
+
+const message = document.createElement('div','Saea');
+message.classList.add("cookie-message");
+message.innerHTML='we use cookie for improved fucntionality .<button class="btn btn--close-cookie">Got it</button>';
+
+const header = document.querySelector(".header");
+header.before(message);
