@@ -64,9 +64,14 @@ btnClick.addEventListener('click',(event) => {
   const scrolllim = section1.getBoundingClientRect();
   //window.scrollTo(scrolllim.left+window.pageXOffset,scrolllim.top+window.pageYOffset);
 
-  window.scrollTo({
+  /*window.scrollTo({
     left:scrolllim.left+window.pageXOffset,
     top:scrolllim.top+window.pageYOffset,
+    behavior:'smooth'
+  })*/
+
+  //new method 
+  section1.scrollIntoView({
     behavior:'smooth'
   })
 })
