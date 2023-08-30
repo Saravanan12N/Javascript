@@ -75,3 +75,15 @@ btnClick.addEventListener('click',(event) => {
     behavior:'smooth'
   })
 })
+
+
+//Event Delegation
+
+document.querySelector('.nav__links').addEventListener('click',(event) => {
+  if(event.target.classList.contains('nav__link')){
+    const id = event.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior:'smooth'
+    })
+  }
+})
