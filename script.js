@@ -106,3 +106,17 @@ tabContianer.addEventListener('click',(e)=>{
     clicked.classList.add('operations__tab--active');
     document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
   })
+
+
+//Sticky 
+
+const intialCords = section1.getBoundingClientRect();
+window.addEventListener('scroll',()=>{
+  if(window.scrollY > intialCords.top){
+    document.querySelector('.nav').classList.add('sticky')}
+  else{
+    document.querySelector('.nav').classList.remove('sticky')
+  }
+    
+  })
+
