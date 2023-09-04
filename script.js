@@ -134,3 +134,28 @@ const obsoptions = {
 
 const Oberver = new IntersectionObserver(obsCallback , obsoptions);
 Oberver.observe(section1);
+
+
+//Revealing Elements 
+const allSection =document.querySelectorAll('.section');
+const revealObserver = function(entries,observer){
+  const [entry] = entries;
+  if(!entry.isIntersecting) return;
+  else entry.target.classList.remove('section--hidden');
+}
+
+
+
+
+const sectionObserver = new IntersectionObserver(revealObserver ,{
+  root:null,
+  threshold:0.15
+})
+
+
+
+
+allSection.forEach((section) => {sectionObserver.observe(section);
+section.classList.add('section--hidden');
+
+})
