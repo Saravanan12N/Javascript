@@ -120,3 +120,17 @@ window.addEventListener('scroll',()=>{
     
   })
 
+
+//Intersection Observer API
+
+const obsCallback = (entries,Oberver) => {
+entries.forEach((entry) => console.log(entry))
+}
+
+const obsoptions = {
+  root:null,
+  threshold:0.1
+}
+
+const Oberver = new IntersectionObserver(obsCallback , obsoptions);
+Oberver.observe(section1);
