@@ -131,7 +131,6 @@ const obsoptions = {
   root:null,
   threshold:0.1
 }
-
 const Oberver = new IntersectionObserver(obsCallback , obsoptions);
 Oberver.observe(section1);
 
@@ -143,19 +142,27 @@ const revealObserver = function(entries,observer){
   if(!entry.isIntersecting) return;
   else entry.target.classList.remove('section--hidden');
 }
-
-
-
-
 const sectionObserver = new IntersectionObserver(revealObserver ,{
   root:null,
   threshold:0.15
 })
-
-
-
-
 allSection.forEach((section) => {sectionObserver.observe(section);
 section.classList.add('section--hidden');
 
 })
+
+
+//Lazy Loading
+
+const imgTarget  = document.querySelectorAll('img[data-src]')
+const loadImg = function(entries,observer) {
+  const[entry] = entries;
+  if(!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  entry.target.classList.remove('lazy-img');
+}
+const imgObserver = new IntersectionObserver(loadImg,{
+  root:null,
+  threshold:0
+})
+imgTarget.forEach(img => imgObserver.observe(img));
