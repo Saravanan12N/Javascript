@@ -166,3 +166,17 @@ const imgObserver = new IntersectionObserver(loadImg,{
   threshold:0
 })
 imgTarget.forEach(img => imgObserver.observe(img));
+
+
+//DomContentLoaded
+
+document.addEventListener('DOMContentLoaded' , (e) => console.log(e));
+
+window.addEventListener('load',(e) => console.log(e));
+
+window.addEventListener('beforeunload',(e)=>{
+  e.preventDefault();
+  console.log(e);
+
+  e.returnValue='';
+})
